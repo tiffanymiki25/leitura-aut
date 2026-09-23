@@ -38,6 +38,7 @@ model Book {
   id String @id @default(cuid())
   title String
   author String
+  genre String?
   synopsis String?
   coverUrl String?
   purchaseUrl String?
