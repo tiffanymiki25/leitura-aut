@@ -23,7 +23,7 @@ model User {
 
 model Club {
   id String @id @default("main")
-  name String @default("Entre Páginas")
+  name String @default("Leitura Autêntica")
   bannerUrl String?
   inviteCode String @unique
   readingStart DateTime?
