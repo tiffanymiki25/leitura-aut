@@ -1,0 +1,2 @@
+import { auth } from './auth'; import { prisma } from './prisma';
+export async function currentUser() { const { data: session } = await auth.getSession(); const user = session?.user; if (!user) return null; return prisma.user.upsert({ where:{ id:user.id }, update:{ email:user.email, name:user.name || user.email.split('@')[0] }, create:{ id:user.id, email:user.email, name:user.name || user.email.split('@')[0] } }); }
