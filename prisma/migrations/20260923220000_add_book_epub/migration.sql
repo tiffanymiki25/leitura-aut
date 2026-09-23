@@ -1,0 +1,2 @@
+ALTER TABLE "Book" ADD COLUMN "epubKey" TEXT;
+ALTER TABLE "Book" ADD COLUMN "epubName" TEXT;

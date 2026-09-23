@@ -43,6 +43,8 @@ model Book {
   synopsis String?
   coverUrl String?
   purchaseUrl String?
+  epubKey String?
+  epubName String?
   isContested Boolean @default(false)
   contestedById String?
   contestedBy User? @relation("ContestedBooks", fields:[contestedById], references:[id], onDelete:SetNull)
