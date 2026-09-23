@@ -12,6 +12,7 @@
   }
   .dashboard aside h1, .dashboard .out { display: none; }
   .dashboard nav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; }
+  .dashboard nav:has(button:nth-child(5)) { grid-template-columns: repeat(5, 1fr); }
   .dashboard nav button { min-height: 46px; padding: 6px 3px; font-size: 10px; line-height: 1.15; text-align: center; white-space: normal; }
   .dashboard nav button.selected { background: #b66a32; }
   .dashboard section { width: 100%; padding: 26px 16px 100px; }

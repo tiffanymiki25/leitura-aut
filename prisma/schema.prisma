@@ -51,6 +51,7 @@ model Book {
   currentForClub Club? @relation("CurrentBook")
   votes Vote[]
   statuses ReadingStatus[]
+  monthlyReadings MonthlyReadingBook[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -80,6 +81,23 @@ model Message {
   createdAt DateTime @default(now())
   userId String
   user User @relation(fields:[userId],references:[id],onDelete:Cascade)
+}
+
+model MonthlyReading {
+  id String @id @default(cuid())
+  month DateTime @unique
+  startDate DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  books MonthlyReadingBook[]
+}
+
+model MonthlyReadingBook {
+  monthlyReadingId String
+  bookId String
+  monthlyReading MonthlyReading @relation(fields:[monthlyReadingId], references:[id], onDelete:Cascade)
+  book Book @relation(fields:[bookId], references:[id], onDelete:Cascade)
+  @@id([monthlyReadingId, bookId])
 }
 
 enum ReadingState {
