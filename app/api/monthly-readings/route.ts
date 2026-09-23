@@ -16,3 +16,9 @@ export async function POST(request:Request) {
   await prisma.club.upsert({where:{id:'main'},update:{currentBookId:newest?.books[0]?.bookId},create:{id:'main',inviteCode:process.env.CLUB_INVITE_CODE || 'configure-o-convite',currentBookId:newest?.books[0]?.bookId}});
   return NextResponse.json(reading);
 }
+
+export async function DELETE(request:Request) {
+  const user=await currentUser(); if(!user?.isAdmin)return NextResponse.json({error:'Apenas administradoras podem excluir leituras.'},{status:403});
+  const id=new URL(request.url).searchParams.get('id'); if(!id)return NextResponse.json({error:'Leitura inválida.'},{status:400});
+  await prisma.monthlyReading.delete({where:{id}}); return NextResponse.json({ok:true});
+}
