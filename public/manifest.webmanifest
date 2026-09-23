@@ -1,1 +1,1 @@
-{"name":"Leitura Autêntica","short_name":"Leitura Autêntica","start_url":"/","display":"standalone","background_color":"#e8dfd0","theme_color":"#292826"}
+{"name":"Leitura Autêntica","short_name":"Autêntica","start_url":"/","display":"standalone","background_color":"#e8dfd0","theme_color":"#292826","icons":[{"src":"/logo-autentica.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}]}

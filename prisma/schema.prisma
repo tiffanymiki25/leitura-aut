@@ -108,4 +108,5 @@ enum ReadingState {
   NOT_STARTED
   READING
   FINISHED
+  ABANDONED
 }
