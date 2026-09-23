@@ -12,8 +12,13 @@
 .book-genre { margin: 1px 0 6px; color: #b66a32; font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 .book-info h3 { margin: 0; font-size: 1.18rem; line-height: 1.15; }
 .book-author { margin: 5px 0 10px; color: #625d56; }
+.book-suggester { margin: -4px 0 12px; color: #7a736a; font-size: .8rem; }
 .book-synopsis { margin: 0 0 14px; color: #48433d; font-size: .91rem; line-height: 1.48; }
 .book-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.book-actions { position: relative; }
+.card-menu { width: 36px; padding: 0 !important; font-size: 1.3rem !important; line-height: 1; }
+.book-menu { position: absolute; z-index: 5; right: 0; top: 43px; display: grid; gap: 7px; min-width: 155px; padding: 10px; border: 1px solid #d8cec0; border-radius: 10px; background: #fffefa; box-shadow: 0 10px 24px rgba(23,32,45,.16); }
+.book-menu button,.book-menu a { text-align: left; }
 .book-actions button, .book-actions a { min-height: 36px; padding: 8px 11px; border: 1px solid #17202d; border-radius: 8px; background: transparent; color: #17202d; font: inherit; font-size: .84rem; font-weight: 750; text-decoration: none; cursor: pointer; }
 .book-actions a { display: inline-flex; align-items: center; }
 .epub-upload { position: relative; display: inline-flex; align-items: center; min-height: 36px; padding: 8px 11px; border: 1px solid #17202d; border-radius: 8px; color: #17202d; font-size: .84rem; font-weight: 750; cursor: pointer; overflow: hidden; }

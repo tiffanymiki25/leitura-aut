@@ -31,6 +31,7 @@ model Club {
   nextMeetingAt DateTime?
   meetingPlace String?
   meetingNotes String?
+  pollOpen Boolean @default(false)
   currentBookId String? @unique
   currentBook Book? @relation("CurrentBook", fields:[currentBookId], references:[id])
 }
@@ -45,6 +46,7 @@ model Book {
   purchaseUrl String?
   epubKey String?
   epubName String?
+  suggestedByLabel String?
   isContested Boolean @default(false)
   contestedById String?
   contestedBy User? @relation("ContestedBooks", fields:[contestedById], references:[id], onDelete:SetNull)
