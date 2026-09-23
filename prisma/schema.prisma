@@ -21,6 +21,7 @@ model User {
   votes Vote[]
   readingStatuses ReadingStatus[]
   comments Comment[]
+  readingActivities ReadingActivity[]
 }
 
 model Club {
@@ -57,6 +58,7 @@ model Book {
   votes Vote[]
   statuses ReadingStatus[]
   comments Comment[]
+  readingActivities ReadingActivity[]
   monthlyReadings MonthlyReadingBook[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -97,6 +99,18 @@ model Comment {
   bookId String
   user User @relation(fields:[userId],references:[id],onDelete:Cascade)
   book Book @relation(fields:[bookId],references:[id],onDelete:Cascade)
+  @@index([bookId,createdAt])
+}
+
+model ReadingActivity {
+  id String @id @default(cuid())
+  state ReadingState
+  createdAt DateTime @default(now())
+  userId String
+  bookId String
+  user User @relation(fields:[userId],references:[id],onDelete:Cascade)
+  book Book @relation(fields:[bookId],references:[id],onDelete:Cascade)
+  @@index([createdAt])
   @@index([bookId,createdAt])
 }
 

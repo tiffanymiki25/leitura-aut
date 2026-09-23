@@ -26,8 +26,11 @@ export async function POST(request:Request) {
   return NextResponse.json({error:'Ação inválida.'},{status:400});
 }
 
-export async function GET() {
-  const user=await currentUser();
-  if(!user?.imageUrl?.startsWith('r2:'))return NextResponse.json({error:'Foto não encontrada.'},{status:404});
-  return NextResponse.redirect(r2SignedUrl('GET',user.imageUrl.slice(3)));
+export async function GET(request:Request) {
+  const requester=await currentUser();
+  if(!requester)return NextResponse.json({error:'Não autorizado.'},{status:401});
+  const userId=new URL(request.url).searchParams.get('userId');
+  const profile=userId?await prisma.user.findUnique({where:{id:userId},select:{imageUrl:true}}):requester;
+  if(!profile?.imageUrl?.startsWith('r2:'))return NextResponse.json({error:'Foto não encontrada.'},{status:404});
+  return NextResponse.redirect(r2SignedUrl('GET',profile.imageUrl.slice(3)));
 }
