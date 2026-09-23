@@ -20,6 +20,7 @@ model User {
   contestations Book[] @relation("ContestedBooks")
   votes Vote[]
   readingStatuses ReadingStatus[]
+  comments Comment[]
 }
 
 model Club {
@@ -55,6 +56,7 @@ model Book {
   currentForClub Club? @relation("CurrentBook")
   votes Vote[]
   statuses ReadingStatus[]
+  comments Comment[]
   monthlyReadings MonthlyReadingBook[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -85,6 +87,17 @@ model Message {
   createdAt DateTime @default(now())
   userId String
   user User @relation(fields:[userId],references:[id],onDelete:Cascade)
+}
+
+model Comment {
+  id String @id @default(cuid())
+  content String
+  createdAt DateTime @default(now())
+  userId String
+  bookId String
+  user User @relation(fields:[userId],references:[id],onDelete:Cascade)
+  book Book @relation(fields:[bookId],references:[id],onDelete:Cascade)
+  @@index([bookId,createdAt])
 }
 
 model MonthlyReading {
