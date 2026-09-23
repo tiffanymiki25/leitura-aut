@@ -1,0 +1,4 @@
+ALTER TABLE "Book" ADD COLUMN "contestedById" TEXT;
+
+ALTER TABLE "Book" ADD CONSTRAINT "Book_contestedById_fkey"
+FOREIGN KEY ("contestedById") REFERENCES "User"("id") ON DELETE SET NULL ON UPDATE CASCADE;

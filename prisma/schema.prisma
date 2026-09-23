@@ -17,6 +17,7 @@ model User {
   updatedAt DateTime @updatedAt
   messages Message[]
   suggestions Book[] @relation("SuggestedBooks")
+  contestations Book[] @relation("ContestedBooks")
   votes Vote[]
   readingStatuses ReadingStatus[]
 }
@@ -43,6 +44,8 @@ model Book {
   coverUrl String?
   purchaseUrl String?
   isContested Boolean @default(false)
+  contestedById String?
+  contestedBy User? @relation("ContestedBooks", fields:[contestedById], references:[id], onDelete:SetNull)
   suggestedById String
   suggestedBy User @relation("SuggestedBooks", fields:[suggestedById], references:[id], onDelete:Cascade)
   currentForClub Club? @relation("CurrentBook")
