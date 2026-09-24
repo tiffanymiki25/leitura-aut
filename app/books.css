@@ -11,9 +11,10 @@
 .book-card.contested { background: #f3eee7; }
 .book-cover { width: 76px; height: 112px; flex: 0 0 76px; overflow: hidden; border-radius: 8px; background: #e8dece; color: #625d56; display: grid; place-items: center; text-align: center; padding: 8px; font-size: .72rem; }
 .book-cover img { width: 100%; height: 100%; object-fit: cover; }
-.book-info { min-width: 0; flex: 1; }
+.book-info { min-width: 0; flex: 1; overflow: hidden; }
 .book-genre { margin: 1px 0 6px; color: #b66a32; font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-.book-info h3 { margin: 0; font-size: 1rem; line-height: 1.15; }
+.book-info h3 { margin: 0; font-size: 1rem; line-height: 1.15; overflow-wrap: anywhere; }
+.book-info .book-author, .book-info .book-suggester, .book-info .book-genre { overflow-wrap: anywhere; }
 .book-author { margin: 4px 0 7px; color: #625d56; font-size: .9rem; }
 .book-suggester { margin: -4px 0 12px; color: #7a736a; font-size: .8rem; }
 .book-synopsis { margin: 0 0 14px; color: #48433d; font-size: .91rem; line-height: 1.48; }
