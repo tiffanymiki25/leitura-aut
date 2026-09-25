@@ -20,3 +20,13 @@
 
 /* Conversa em tela fixa: apenas as mensagens rolam, mantendo o compositor visível. */
 .group-chat{height:min(620px,calc(100dvh - 190px));min-height:360px}.group-messages{min-height:0}.group-composer{flex:0 0 auto}@media(max-width:430px){.group-chat{height:calc(100dvh - 178px);min-height:0}}
+
+@media(max-width:720px){
+  .dashboard section.chat-page{position:fixed;inset:0 0 calc(70px + env(safe-area-inset-bottom));z-index:1;display:flex;flex-direction:column;width:100%;max-width:none;padding:18px 0 0;overflow:hidden}
+  .chat-page .page-logo{display:none}
+  .chat-page .section-heading{flex:0 0 auto;margin:0;padding:0 16px 12px}
+  .chat-page .section-heading h2{margin:0}
+  .chat-page .group-chat{width:100%;max-width:none;height:auto;min-height:0;flex:1;border-right:0;border-bottom:0;border-left:0;border-radius:0}
+  .chat-page .group-composer{padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
+  .reading-catalog .catalog-card.catalog-open .catalog-menu{position:fixed;top:50%;left:50%;right:auto;width:min(260px,calc(100vw - 32px));max-height:calc(100dvh - 150px);overflow:auto;transform:translate(-50%,-50%);padding:14px;z-index:31}
+}
