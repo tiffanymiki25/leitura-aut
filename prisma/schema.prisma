@@ -23,6 +23,7 @@ model User {
   comments Comment[]
   readingActivities ReadingActivity[]
   ratings Rating[]
+  personalReadings PersonalReading[]
 }
 
 model Club {
@@ -126,6 +127,21 @@ model Rating {
   book Book @relation(fields:[bookId],references:[id],onDelete:Cascade)
   @@id([userId,bookId])
   @@index([bookId])
+}
+
+model PersonalReading {
+  id String @id @default(cuid())
+  title String
+  author String?
+  startedAt DateTime?
+  finishedAt DateTime?
+  rating Int?
+  coverUrl String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId String
+  user User @relation(fields:[userId], references:[id], onDelete:Cascade)
+  @@index([userId,finishedAt])
 }
 
 model MonthlyReading {
